@@ -1,0 +1,49 @@
+{
+  "name": "samechan-vrchat-gacha",
+  "description": "",
+  "version": "0.0.0",
+  "author": "Tomachi <tomachi@tomacheese.com>",
+  "bugs": {
+    "url": "https://github.com/tomacheese/samechan-vrchat-gacha/issues"
+  },
+  "devDependencies": {
+    "@book000/eslint-config": "1.7.66",
+    "@book000/node-utils": "1.13.284",
+    "@book000/twitterts": "0.69.152",
+    "@types/node": "22.7.4",
+    "axios": "1.7.7",
+    "eslint": "9.12.0",
+    "eslint-config-standard": "17.1.0",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-n": "17.10.3",
+    "eslint-plugin-promise": "7.1.0",
+    "prettier": "3.3.3",
+    "puppeteer-core": "23.5.0",
+    "run-z": "2.0.0",
+    "tsx": "4.19.1",
+    "typescript": "5.6.2",
+    "typescript-json-schema": "0.65.1"
+  },
+  "homepage": "https://github.com/tomacheese/samechan-vrchat-gacha",
+  "license": "MIT",
+  "main": "dist/main.js",
+  "packageManager": "pnpm@9.11.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tomacheese/samechan-vrchat-gacha.git"
+  },
+  "scripts": {
+    "dev": "tsx watch ./src/main.ts",
+    "fix": "run-z fix:prettier fix:eslint",
+    "fix:eslint": "eslint . -c eslint.config.mjs --fix",
+    "fix:prettier": "prettier --write src",
+    "lint": "run-z lint:prettier,lint:eslint,lint:tsc",
+    "lint:eslint": "eslint . -c eslint.config.mjs",
+    "lint:prettier": "prettier --check src",
+    "lint:tsc": "tsc",
+    "preinstall": "npx only-allow pnpm",
+    "start": "tsx ./src/main.ts",
+    "generate-schema": "typescript-json-schema --required src/config.ts ConfigInterface -o schema/Configuration.json"
+  }
+}

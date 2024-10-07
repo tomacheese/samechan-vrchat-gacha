@@ -1,0 +1,50 @@
+{
+  "name": "samechan-vrchat-gacha",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
+  "remoteUser": "node",
+  "otherPortsAttributes": {
+    "onAutoForward": "silent"
+  },
+  "postCreateCommand": "sudo npm uninstall -g pnpm yarn && sudo chown node node_modules .pnpm-store && sudo corepack enable && corepack install &&  install",
+  "waitFor": "postStartCommand",
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
+    "source=pnpm-store,target=${containerWorkspaceFolder}/.pnpm-store,type=volume"
+  ],
+  "customizations": {
+    "settings": {
+      "editor.formatOnSave": true,
+      "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": false
+        }
+      },
+      "git.branchProtection": [
+        "main",
+        "master"
+      ]
+    },
+    "extensions": [
+      "esbenp.prettier-vscode"
+    ],
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": true,
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": false
+          }
+        },
+        "git.branchProtection": [
+          "main",
+          "master"
+        ]
+      },
+      "extensions": [
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}

@@ -1,0 +1,97 @@
+name: Update tweet
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - '**/*.ts'
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  update-tweet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛎 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🏗 Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: yarn
+          cache-dependency-path: yarn.lock
+
+      - name: Install apt dependencies
+        uses: nick-fields/retry@v3
+        with:
+          max_attempts: 3
+          retry_on: error
+          timeout_minutes: 30
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y curl fontconfig fonts-noto-cjk
+            fc-cache -fv
+            sudo apt-get install -y chromium-browser libnss3 libfreetype6 libfreetype6-dev libharfbuzz-bin ca-certificates fonts-freefont-ttf nodejs xvfb xauth dbus dbus-x11
+
+      - name: Install nodejs dependencies
+        run: yarn
+
+      - name: Update Tweet
+        id: update-tweet
+        run: |
+          rm /tmp/.X*-lock || true
+          rm -rf data/userdata/Singleton* || true
+          Xvfb :99 -ac -screen 0 600x1000x16 -listen tcp &
+          export DISPLAY=:99
+          yarn build
+          kill -9 "$(pgrep -f "Xvfb" | awk '{print $2}')" || true
+        env:
+          TWITTER_USERNAME: ${{ secrets.TWITTER_USERNAME }}
+          TWITTER_PASSWORD: ${{ secrets.TWITTER_PASSWORD }}
+          TWITTER_AUTH_CODE_SECRET: ${{ secrets.TWITTER_AUTH_CODE_SECRET }}
+          TWITTER_EMAIL_ADDRESS: ${{ secrets.TWITTER_EMAIL_ADDRESS }}
+          PROXY_SERVER: ${{ secrets.PROXY_SERVER }}
+          PROXY_USERNAME: ${{ secrets.PROXY_USERNAME }}
+          PROXY_PASSWORD: ${{ secrets.PROXY_PASSWORD }}
+
+      - name: Error handling
+        if: failure()
+        uses: Ilshidur/action-discord@0.3.2
+        with:
+          args: ''
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_EMBEDS: |
+            [
+              {
+                "title": "Tweet Update Failed",
+                "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+                "color": 16711680
+              }
+            ]
+
+      - name: Upload Pages-artifact
+        uses: actions/upload-pages-artifact@v3
+        if: always()
+        with:
+          path: output
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: update-tweet
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
