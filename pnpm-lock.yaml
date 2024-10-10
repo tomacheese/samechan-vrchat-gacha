@@ -42,8 +42,8 @@ importers:
         specifier: 3.3.3
         version: 3.3.3
       puppeteer-core:
-        specifier: 23.5.0
-        version: 23.5.0
+        specifier: 23.5.2
+        version: 23.5.2
       run-z:
         specifier: 2.1.0
         version: 2.1.0
@@ -1667,6 +1667,10 @@ packages:
 
   puppeteer-core@23.5.0:
     resolution: {integrity: sha512-+5ed+625GuQ2emRHqYec8khT9LP14FWzv8hYl0HiM6hnnlNzdVU9uDJIPHeCPLIWxq15ost9MeF8kBk4R3eiFw==}
+    engines: {node: '>=18'}
+
+  puppeteer-core@23.5.2:
+    resolution: {integrity: sha512-UwPAX29EID8lJmxeL7JT3Gz35D1BHn5o9ZXpBLoR24W7gtUg1dLx7OUPsUTR5Tlxf+1Yeqw9W3qP4uqWThqXgg==}
     engines: {node: '>=18'}
 
   queue-microtask@1.2.3:
@@ -3905,6 +3909,19 @@ snapshots:
   punycode@2.3.1: {}
 
   puppeteer-core@23.5.0:
+    dependencies:
+      '@puppeteer/browsers': 2.4.0
+      chromium-bidi: 0.8.0(devtools-protocol@0.0.1342118)
+      debug: 4.3.7
+      devtools-protocol: 0.0.1342118
+      typed-query-selector: 2.12.0
+      ws: 8.18.0
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+
+  puppeteer-core@23.5.2:
     dependencies:
       '@puppeteer/browsers': 2.4.0
       chromium-bidi: 0.8.0(devtools-protocol@0.0.1342118)
