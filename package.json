@@ -27,7 +27,7 @@
   "homepage": "https://github.com/tomacheese/samechan-vrchat-gacha",
   "license": "MIT",
   "main": "dist/main.js",
-  "packageManager": "pnpm@9.13.2",
+  "packageManager": "pnpm@9.14.1",
   "private": true,
   "repository": {
     "type": "git",
