@@ -18,8 +18,8 @@ importers:
         specifier: 0.69.152
         version: 0.69.152
       '@types/node':
-        specifier: 22.10.0
-        version: 22.10.0
+        specifier: 22.10.1
+        version: 22.10.1
       axios:
         specifier: 1.7.8
         version: 1.7.8
@@ -381,8 +381,8 @@ packages:
   '@types/node@18.19.65':
     resolution: {integrity: sha512-Ay5BZuO1UkTmVHzZJNvZKw/E+iB3GQABb6kijEz89w2JrfhNA+M/ebp18pfz9Gqe9ywhMC8AA8yC01lZq48J+Q==}
 
-  '@types/node@22.10.0':
-    resolution: {integrity: sha512-XC70cRZVElFHfIUB40FgZOBbgJYFKKMa5nb9lxcwYstFG/Mi+/Y0bGS+rs6Dmhmkpq4pnNiLiuZAbc02YCOnmA==}
+  '@types/node@22.10.1':
+    resolution: {integrity: sha512-qKgsUwfHZV2WCWLAnVP1JqnpE6Im6h3Y0+fYgMTasNQ7V++CBX5OT1as0g0f+OyubbFqhf6XVNIsmN4IIhEgGQ==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -2463,7 +2463,7 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
 
-  '@types/node@22.10.0':
+  '@types/node@22.10.1':
     dependencies:
       undici-types: 6.20.0
 
@@ -2473,7 +2473,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
     optional: true
 
   '@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.15.0)(typescript@5.7.2))(eslint@9.15.0)(typescript@5.7.2)':
