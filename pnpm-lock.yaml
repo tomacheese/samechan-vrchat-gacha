@@ -15,8 +15,8 @@ importers:
         specifier: 1.13.406
         version: 1.13.406
       '@book000/twitterts':
-        specifier: 0.71.116
-        version: 0.71.116
+        specifier: 0.71.117
+        version: 0.71.117
       '@types/node':
         specifier: 22.10.2
         version: 22.10.2
@@ -80,8 +80,8 @@ packages:
   '@book000/node-utils@1.13.406':
     resolution: {integrity: sha512-FBmkZRGaymD+c4CQg/gFNYUIar7IpC9EdsSDMGKhT3vT/Fg9sj0OfhdJNCG8OgOfyGWB8hBBc8j46JsIRborhA==}
 
-  '@book000/twitterts@0.71.116':
-    resolution: {integrity: sha512-ya2FU5UDcaF5WsEf7AcnhkmtCSilTsaixz3Y3bJiPRHGgZALiWLR8n6BMlHtvrvvvEz6uLBfKEvTDB4sLrQxCQ==}
+  '@book000/twitterts@0.71.117':
+    resolution: {integrity: sha512-qS1qGTuFhLQroLupHAKEw3hFWObkNLAmN21NYKvRoVWjygC9W0hdUbS5JTzN+nXKQFNuEDDfAFfcsur9pMzqKg==}
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -1352,8 +1352,8 @@ packages:
   json-stable-stringify-without-jsonify@1.0.1:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
 
-  json-stable-stringify@1.1.1:
-    resolution: {integrity: sha512-SU/971Kt5qVQfJpyDveVhQ/vya+5hvrjClFOcr8c0Fq5aODJjMwutrOfCU+eCnVD5gpx1Q3fEqkyom77zH1iIg==}
+  json-stable-stringify@1.2.1:
+    resolution: {integrity: sha512-Lp6HbbBgosLmJbjx0pBLbgvx68FaFU1sdkmBuckmhhJ88kL13OA51CDtR2yJB50eCNMH9wRqtQNNiAqQH4YXnA==}
     engines: {node: '>= 0.4'}
 
   json5@1.0.2:
@@ -2171,12 +2171,12 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@book000/twitterts@0.71.116':
+  '@book000/twitterts@0.71.117':
     dependencies:
       '@book000/node-utils': 1.13.406
       genson-js: 0.0.8
       json-schema-to-typescript: 15.0.3
-      json-stable-stringify: 1.1.1
+      json-stable-stringify: 1.2.1
       mysql2: 3.12.0
       otplib: 12.0.1
       puppeteer-core: 23.11.1
@@ -3549,9 +3549,10 @@ snapshots:
 
   json-stable-stringify-without-jsonify@1.0.1: {}
 
-  json-stable-stringify@1.1.1:
+  json-stable-stringify@1.2.1:
     dependencies:
       call-bind: 1.0.8
+      call-bound: 1.0.3
       isarray: 2.0.5
       jsonify: 0.0.1
       object-keys: 1.1.1
