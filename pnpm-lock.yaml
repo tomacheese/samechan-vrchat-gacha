@@ -15,8 +15,8 @@ importers:
         specifier: 1.13.418
         version: 1.13.418
       '@book000/twitterts':
-        specifier: 0.71.136
-        version: 0.71.136
+        specifier: 0.71.142
+        version: 0.71.142
       '@types/node':
         specifier: 22.10.5
         version: 22.10.5
@@ -77,14 +77,14 @@ packages:
       eslint: 9.18.0
       eslint-config-standard: 17.1.0
 
-  '@book000/node-utils@1.13.416':
-    resolution: {integrity: sha512-9BGxLJqBe1EkestM7ThZoZSDSH1g+xY2R5CnoaCfV53rdTxFFQ6oNsc4QDMiyWwrg6aXq4wfxHA/2P0d+h80kw==}
-
   '@book000/node-utils@1.13.418':
     resolution: {integrity: sha512-0cRvVqn0foiT6CLy7SviNHCtGz17kL3dt5rKCJwVcoMND6E/9RMCUe0Q34IkkwuIn6AiA4v/GFBgL7JB7ZlZjQ==}
 
-  '@book000/twitterts@0.71.136':
-    resolution: {integrity: sha512-ImMA2dByco9ATEFGSnbiWv09ghUElJUBjAuW+BGavIjIhjbJVJHn442Pz0uDWUjuemab+xFzZkC3joiMCjx8VA==}
+  '@book000/node-utils@1.13.420':
+    resolution: {integrity: sha512-n1mMkxFiXduT9AL93nQGMsng2aACjHtqGJbRnfL6R/0OoM1JL52T64c4OL0DA7KnkQYCEzmpkwCUMtmamPMdXw==}
+
+  '@book000/twitterts@0.71.142':
+    resolution: {integrity: sha512-VQjGRN+snkBAlKj/vuUWYngFEbMqi9MAZAoBXy3QyKJmBgI85sOS6E4z1rPoKOYZNejuXy66udoleRlqPGx0TA==}
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -337,6 +337,11 @@ packages:
 
   '@puppeteer/browsers@2.6.1':
     resolution: {integrity: sha512-aBSREisdsGH890S2rQqK82qmQYU3uFpSH8wcZWHgHzl3LfzsxAKbLNiAG9mO8v1Y0UICBeClICxPJvyr0rcuxg==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  '@puppeteer/browsers@2.7.0':
+    resolution: {integrity: sha512-bO61XnTuopsz9kvtfqhVbH6LTM1koxK0IlBR+yuVrM2LB7mk8+5o1w18l5zqd5cs8xlf+ntgambqRqGifMDjog==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -1649,6 +1654,10 @@ packages:
     resolution: {integrity: sha512-3HZ2/7hdDKZvZQ7dhhITOUg4/wOrDRjyK2ZBllRB0ZCOi9u0cwq1ACHDjBB+nX+7+kltHjQvBRdeY7+W0T+7Gg==}
     engines: {node: '>=18'}
 
+  puppeteer-core@24.0.0:
+    resolution: {integrity: sha512-bHVXmnkYnMVSbsD+pJGt8fmGZLaVYOAieVnJcDxtLIVTMq0s5RfYdzN4xVlFoBQ3T06/sPkXxca3VLVfaqLxzg==}
+    engines: {node: '>=18'}
+
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
@@ -2170,18 +2179,6 @@ snapshots:
       - supports-color
       - typescript
 
-  '@book000/node-utils@1.13.416':
-    dependencies:
-      axios: 1.7.9
-      cycle: 1.0.3
-      form-data: 4.0.1
-      jsonc-parser: 3.3.1
-      moment-timezone: 0.5.46
-      winston: 3.16.0
-      winston-daily-rotate-file: 5.0.0(winston@3.16.0)
-    transitivePeerDependencies:
-      - debug
-
   '@book000/node-utils@1.13.418':
     dependencies:
       axios: 1.7.9
@@ -2194,15 +2191,27 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@book000/twitterts@0.71.136':
+  '@book000/node-utils@1.13.420':
     dependencies:
-      '@book000/node-utils': 1.13.416
+      axios: 1.7.9
+      cycle: 1.0.3
+      form-data: 4.0.1
+      jsonc-parser: 3.3.1
+      moment-timezone: 0.5.46
+      winston: 3.16.0
+      winston-daily-rotate-file: 5.0.0(winston@3.16.0)
+    transitivePeerDependencies:
+      - debug
+
+  '@book000/twitterts@0.71.142':
+    dependencies:
+      '@book000/node-utils': 1.13.420
       genson-js: 0.0.8
       json-schema-to-typescript: 15.0.3
       json-stable-stringify: 1.2.1
       mysql2: 3.12.0
       otplib: 12.0.1
-      puppeteer-core: 23.11.1
+      puppeteer-core: 24.0.0
       twitter-d: 0.6.0
       ulid: 2.3.0
     transitivePeerDependencies:
@@ -2397,6 +2406,19 @@ snapshots:
       '@otplib/plugin-thirty-two': 12.0.1
 
   '@puppeteer/browsers@2.6.1':
+    dependencies:
+      debug: 4.4.0
+      extract-zip: 2.0.1
+      progress: 2.0.3
+      proxy-agent: 6.5.0
+      semver: 7.6.3
+      tar-fs: 3.0.6
+      unbzip2-stream: 1.4.3
+      yargs: 17.7.2
+    transitivePeerDependencies:
+      - supports-color
+
+  '@puppeteer/browsers@2.7.0':
     dependencies:
       debug: 4.4.0
       extract-zip: 2.0.1
@@ -3887,6 +3909,19 @@ snapshots:
   puppeteer-core@23.11.1:
     dependencies:
       '@puppeteer/browsers': 2.6.1
+      chromium-bidi: 0.11.0(devtools-protocol@0.0.1367902)
+      debug: 4.4.0
+      devtools-protocol: 0.0.1367902
+      typed-query-selector: 2.12.0
+      ws: 8.18.0
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+
+  puppeteer-core@24.0.0:
+    dependencies:
+      '@puppeteer/browsers': 2.7.0
       chromium-bidi: 0.11.0(devtools-protocol@0.0.1367902)
       debug: 4.4.0
       devtools-protocol: 0.0.1367902
